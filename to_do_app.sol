@@ -43,7 +43,6 @@ contract TodoList {
 
     function getTaskByContent(string memory _content) public view returns (uint256, string memory, bool) {
         for (uint256 i = 1; i <= taskCount; i++) {
-            // Convert storage string to memory string for comparison
             string memory taskContent = tasks[i].content;
             if (keccak256(abi.encodePacked(taskContent)) == keccak256(abi.encodePacked(_content))) {
                 return (tasks[i].id, taskContent, tasks[i].completed);
@@ -75,7 +74,6 @@ contract TodoList {
 
         emit TaskDeleted(_id);
 
-        // Delete the task by shifting tasks and reducing taskCount
         for (uint256 i = _id; i <= taskCount; i++) {
             tasks[i] = tasks[i + 1];
             updateTaskId(i, i - 1);
@@ -92,10 +90,8 @@ contract TodoList {
 
         Task storage task = tasks[_oldId];
 
-        // Create a new task with the new ID and copy content and completion status
         tasks[_newId] = Task(_newId, task.content, task.completed);
 
-        // Emit TaskUpdated event for the new task
         emit TaskUpdated(_newId, task.content, task.completed);
     }
 

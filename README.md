@@ -53,5 +53,6 @@ Retrieves details of all tasks in the to-do list.<br>
 
 ### Resources
 
-[1] https://www.dappuniversity.com/articles/blockchain-app-tutorial#listTasks
+[1] https://www.dappuniversity.com/articles/blockchain-app-tutorial#listTasks <br>
+
 [2] https://medium.com/unitechie/build-todo-application-in-react-and-solidity-538ef2f1f54f
