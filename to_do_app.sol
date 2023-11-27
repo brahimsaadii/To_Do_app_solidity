@@ -74,7 +74,7 @@ contract TodoList {
 
         emit TaskDeleted(_id);
 
-        for (uint256 i = _id; i <= taskCount; i++) {
+        for (uint256 i = _id + 1; i <= taskCount; i++) {
             tasks[i] = tasks[i + 1];
             updateTaskId(i, i - 1);
         }
